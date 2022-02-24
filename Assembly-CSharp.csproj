@@ -59,13 +59,24 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\Scripts\Hazards\HurtingHazard.cs" />
+    <Compile Include="Assets\Resources\Scripts\Health\HealthSistem.cs" />
+    <Compile Include="Assets\Resources\Scripts\Controllers\FlockManager.cs" />
+    <Compile Include="Assets\Resources\Scripts\Sound\SoundDelegation.cs" />
+    <Compile Include="Assets\Resources\Scripts\Controllers\FlockMember.cs" />
+    <Compile Include="Assets\Resources\Scripts\Sound\SoundManager.cs" />
+    <Compile Include="Assets\Resources\Scripts\Health\OverHeatingSystem.cs" />
     <Compile Include="Assets\Resources\Scripts\Tools\MeasurementTool\Measurement.cs" />
-    <Compile Include="Assets\Resources\Scripts\Tools\MeasurementTool\RulerBehabiour.cs" />
+    <Compile Include="Assets\Resources\Scripts\Controllers\CameraManager.cs" />
+    <Compile Include="Assets\Resources\Scripts\Deaths\ExplosionDeath.cs" />
     <Compile Include="Assets\Resources\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Resources\Scripts\Utility.cs" />
-    <Compile Include="Assets\Resources\Scripts\Controllers\CameraManager.cs" />
-    <Compile Include="Assets\Resources\Scripts\Controllers\FlockManager.cs" />
-    <Compile Include="Assets\Resources\Scripts\Controllers\FlockMember.cs" />
+    <Compile Include="Assets\Resources\Scripts\Tools\MeasurementTool\RulerBehabiour.cs" />
+    <Compile Include="Assets\Resources\Scripts\Hazards\Hazard.cs" />
+    <Compile Include="Assets\Resources\Scripts\Hazards\BurningHazard.cs" />
+    <Compile Include="Assets\Resources\Scripts\Effects\HeatingEffect.cs" />
+    <Compile Include="Assets\Resources\Scripts\Deaths\FallingDeath.cs" />
+    <Compile Include="Assets\Resources\Scripts\Deaths\SimpleDeath.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

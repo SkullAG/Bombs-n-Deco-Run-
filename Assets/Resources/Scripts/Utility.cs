@@ -6,6 +6,7 @@ using UnityEngine;
 
 public static class Utility
 {
+	static Vector3 TempVec3 = Vector3.zero;
 
     ///<summary>
     ///	Is true if float a and b have the same, if one of the two is 0 will return false
@@ -39,9 +40,9 @@ public static class Utility
 	///	Interpolates the velocity usin acceleration and friction
 	///	</summary>
 	///	<param name="limitVelocity">The maximum velocity or the desired velocity, default is infinity</param>
-	public static float CalculateVelocity(float actualVelocity, float acceleration, float limitVelocity = Mathf.Infinity, float friction = 1f)
+	public static float CalculateVelocity(float currentVelocity, float acceleration, float limitVelocity = Mathf.Infinity, float friction = 1f)
     {
-		return Mathf.Lerp(actualVelocity, limitVelocity, Mathf.Min((acceleration * friction * Time.deltaTime) / Mathf.Abs(actualVelocity - limitVelocity), 1));
+		return Mathf.Lerp(currentVelocity, limitVelocity, Mathf.Min((acceleration * friction * Time.deltaTime) / Mathf.Abs(currentVelocity - limitVelocity), 1));
 	}
 
 

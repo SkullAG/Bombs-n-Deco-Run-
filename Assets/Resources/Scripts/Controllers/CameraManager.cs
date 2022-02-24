@@ -9,13 +9,13 @@ public class CameraManager : MonoBehaviour
 {
 	public Transform objective;
 	public float acceleration;
-	Vector3 offset = Vector3.zero;
+	public Vector3 offset = Vector3.zero;
 	Rigidbody _rb;
 
 	private void Start()
 	{
 		_rb = GetComponent<Rigidbody>();
-		offset = transform.position - objective.position;
+		//offset = transform.position - objective.position;
 	}
 
 	private void FixedUpdate()

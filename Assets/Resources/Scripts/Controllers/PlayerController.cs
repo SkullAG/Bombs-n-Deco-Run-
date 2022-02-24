@@ -36,15 +36,13 @@ public class PlayerController : MonoBehaviour
 	{
 		if (isGrounded && context.started)
 		{
-			_rb.velocity += transform.up * jumpForce;
+			_rb.velocity = new Vector3(_rb.velocity.x, jumpForce, _rb.velocity.z);
 		}
 	}
 
 	void checkForGround()
 	{
 		isGrounded = Physics.Raycast(transform.position, -transform.up, groundCheckDistance, groundMask);
-
-		Debug.DrawLine(transform.position, transform.position - transform.up * groundCheckDistance, isGrounded ? Color.green : Color.red);
 	}
 
 	void CalculateMovement()
@@ -71,5 +69,11 @@ public class PlayerController : MonoBehaviour
 		checkForGround();
 
 		CalculateMovement();
+	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = isGrounded ? Color.green : Color.red;
+		Gizmos.DrawLine(transform.position, transform.position - transform.up * groundCheckDistance);
 	}
 }
