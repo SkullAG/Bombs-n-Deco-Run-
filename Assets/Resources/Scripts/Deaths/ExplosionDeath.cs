@@ -14,6 +14,8 @@ public class ExplosionDeath : MonoBehaviour
 
 	public Vector3 explosionOffset = Vector3.zero;
 
+	public AudioClip sound;
+
 	HealthSistem hp;
 
 	private void Awake()
@@ -33,13 +35,18 @@ public class ExplosionDeath : MonoBehaviour
 	// Update is called once per frame
 	void Die()
 	{
+		if(sound)
+        {
+			SoundDelegation.PlaySoundEffect(sound);
+        }
+
 		GameObject exp = Instantiate(explosion, transform.position, Quaternion.identity);
 
 		exp.transform.localScale = new Vector3(explosionRadius, explosionRadius, explosionRadius);
 
 		Collider[] cols = Physics.OverlapSphere(transform.position + explosionOffset, explosionRadius, hurtingLayers);
 
-		Debug.Log(cols.Length);
+		//Debug.Log(cols.Length);
 
 		foreach(Collider c in cols)
         {

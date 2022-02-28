@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 850380321154802096}
   - component: {fileID: 884835387179927297}
   - component: {fileID: 884835387179927310}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5199587962143875695}
   - component: {fileID: 8050848732894194632}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 5444458035289037010}
   - component: {fileID: 5616389310325646106}
   - component: {fileID: 2107365319667612906}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4970,7 +4970,7 @@ GameObject:
   - component: {fileID: 884835386550228508}
   - component: {fileID: 884835386550228509}
   - component: {fileID: 884835386550228511}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wick003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5041,18 +5041,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -75
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 75
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 75
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -5077,7 +5077,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7356451624939588589}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wick003_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5110,7 +5110,7 @@ GameObject:
   - component: {fileID: 6832160518875137194}
   - component: {fileID: 3628655949579873556}
   - component: {fileID: 77613858}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5209,7 +5209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4897795622350420088}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5243,7 +5243,7 @@ GameObject:
   - component: {fileID: 884835387477991493}
   - component: {fileID: 884835387477991491}
   - component: {fileID: 884835387477991490}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wick001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5314,18 +5314,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -75
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 75
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 75
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -5350,7 +5350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8610316477159043374}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5384,7 +5384,7 @@ GameObject:
   - component: {fileID: 884835386318278601}
   - component: {fileID: 884835386318278646}
   - component: {fileID: 884835386318278647}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wick002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5455,18 +5455,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -75
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 75
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 75
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:

@@ -66,7 +66,8 @@ public class HealthSistem : MonoBehaviour
 			{
 				health = 0;
 			}
-
+			
+			if(health != Mathf.Infinity)
 			OnLifeChange.Invoke(health);
 
 

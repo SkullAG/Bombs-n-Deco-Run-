@@ -9,10 +9,15 @@ public class FlockManager : MonoBehaviour
 	public Transform objective;
 
 	public float MinDistanceToObjective;
+	public float MaxDistanceToObjective = 50;
 
 	public float MinDistanceBetweenMembers;
 
 	public Transform AttackObjective;
+
+	public Transform LaunchPoint;
+
+	public Vector3 LaunchVelocity;
 
 	Rigidbody _rb;
 
@@ -26,9 +31,19 @@ public class FlockManager : MonoBehaviour
 		}
 	}
 
+	public void AddFollower()
+	{
+		FlockMember follower = PoolingManager.Instance.GetPooledObject("BombedLeg").GetComponent<FlockMember>();
+		flockMembers.Add(follower);
+		follower.SetNewFlock(this);
+		follower.transform.position = LaunchPoint.position;
+		follower.GetComponent<Rigidbody>().velocity = LaunchVelocity;
+		follower.gameObject.SetActive(true);
+	}
+
 	public void jumpOrder(InputAction.CallbackContext context)
 	{
-		if (context.started)
+		if (context.started && !PauseManager.IsPaused)
 		{
 			foreach (FlockMember f in flockMembers)
 			{
@@ -37,17 +52,20 @@ public class FlockManager : MonoBehaviour
 		}
 	}
 
-	public void jumpOrder()
+	public void stompOrder(InputAction.CallbackContext context)
 	{
-		foreach (FlockMember f in flockMembers)
+		if (context.started && !PauseManager.IsPaused)
 		{
-			f.storeJumpOrder(objective.position.z);
+			foreach (FlockMember f in flockMembers)
+			{
+				f.storeStompOrder(objective.position.z);
+			}
 		}
 	}
 
 	public void attackOrder(InputAction.CallbackContext context)
 	{
-		if (context.started)
+		if (context.started && !PauseManager.IsPaused)
 		{
 			foreach (FlockMember f in flockMembers)
 			{
@@ -60,14 +78,13 @@ public class FlockManager : MonoBehaviour
 		}
 	}
 
-	public void attackOrder()
-	{
+    private void Update()
+    {
 		foreach (FlockMember f in flockMembers)
 		{
-			if (!f.followingAttackOrder)
+			if (Vector3.Distance(objective.position, f.transform.position) > MaxDistanceToObjective)
 			{
-				f.JumpTo(AttackObjective.position, _rb.velocity.z);
-				return;
+				f.autoKill();
 			}
 		}
 	}

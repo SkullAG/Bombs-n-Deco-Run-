@@ -8,16 +8,16 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - IgnoreCollisions
   - Water
   - UI
   - Player
   - Allyes
   - Enemy
   - Hazard
-  - 
+  - Bombs
   - AttackingAlly
-  - 
+  - PlayerWall
   - 
   - 
   - 

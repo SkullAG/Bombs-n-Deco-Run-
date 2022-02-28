@@ -8,6 +8,7 @@ public class FlockMember : MonoBehaviour
 	private FlockManager flock;
 
 	List<float> jumpPoints = new List<float>();
+	List<float> stompPoints = new List<float>();
 
 	public float velocity;
 	public float acceleration;
@@ -18,6 +19,8 @@ public class FlockMember : MonoBehaviour
 
 	private Rigidbody _rb;
 	private Rigidbody objectiveRB;
+	private Animator _animator;
+	private HealthSistem _hp;
 
 	public float groundCheckDistance;
 	public LayerMask groundMask;
@@ -26,7 +29,7 @@ public class FlockMember : MonoBehaviour
 	Vector3 breakDistance = Vector3.zero;
 
 	public int LayerWhenAttacking;
-	LayerMask basicLayer;
+	int basicLayer;
 
 	public bool followingAttackOrder { get; private set; }
 
@@ -34,32 +37,40 @@ public class FlockMember : MonoBehaviour
 	{
 		isGrounded = Physics.Raycast(transform.position, -transform.up, groundCheckDistance, groundMask);
 
+		_animator.SetBool("IsGrounded", isGrounded);
+
 		Debug.DrawLine(transform.position, transform.position - transform.up * groundCheckDistance, isGrounded ? Color.green : Color.red);
 	}
 
 	private void Start()
-    {
+	{
 		_rb = GetComponent<Rigidbody>();
+		_animator = GetComponent<Animator>();
 
 		basicLayer = gameObject.layer;
+
+		_hp = GetComponent<HealthSistem>();
 
 		if (flock)
 		 objectiveRB = flock.objective.GetComponent<Rigidbody>();
 	}
 
-    public void storeJumpOrder(float zDistance)
+	public void storeJumpOrder(float zDistance)
 	{
 		jumpPoints.Add(zDistance);
 	}
-
+	public void storeStompOrder(float zDistance)
+	{
+		stompPoints.Add(zDistance);
+	}
 
 	private void FixedUpdate()
 	{
 		if(followingAttackOrder && isGrounded)
-        {
+		{
 			checkForGround();
 			return;
-        }
+		}
 
 		checkForGround();
 
@@ -70,9 +81,9 @@ public class FlockMember : MonoBehaviour
 		}
 		else if(followingAttackOrder)
 		{
-			basicLayer = gameObject.layer;
+			gameObject.layer = basicLayer;
 			followingAttackOrder = false;
-        }
+		}
 
 		if (!flock) return;
 
@@ -112,9 +123,9 @@ public class FlockMember : MonoBehaviour
 		_rb.velocity = vel;
 
 		for(int i = jumpPoints.Count-1; i >= 0; i--)
-        {
-			if(transform.position.z > jumpPoints[i] && isGrounded)
-            {
+		{
+			if(transform.position.z > jumpPoints[i] && transform.position.z < jumpPoints[i] + 1 && isGrounded)
+			{
 				_rb.velocity = new Vector3(_rb.velocity.x, jumpForce, _rb.velocity.z);
 
 				jumpPoints.Remove(jumpPoints[i]);
@@ -122,22 +133,39 @@ public class FlockMember : MonoBehaviour
 				
 			}
 			else if(transform.position.z > jumpPoints[i] + 1)
-            {
+			{
 				jumpPoints.Remove(jumpPoints[i]);
 			}
-        }
+		}
+
+		for (int i = stompPoints.Count - 1; i >= 0; i--)
+		{
+			if (transform.position.z > stompPoints[i] && transform.position.z < stompPoints[i] + 1 && !isGrounded)
+			{
+				_rb.velocity = new Vector3(_rb.velocity.x, -jumpForce, _rb.velocity.z);
+
+				stompPoints.Remove(stompPoints[i]);
+
+
+			}
+			else if (transform.position.z > stompPoints[i] + 1)
+			{
+				stompPoints.Remove(stompPoints[i]);
+			}
+		}
+		
 	}
 
 	Vector3 avoidFlockMembersDir()
-    {
+	{
 		Vector3 avoidDir = Vector3.zero;
 
 		Vector3 TempDir = Vector3.zero;
 		foreach (FlockMember f in flock.flockMembers)
-        {
+		{
 			//float breakDistance = Mathf.Pow(new Vector3(_rb.velocity.x, 0, _rb.velocity.z).magnitude, 2) / acceleration;
 			if(f != this)
-            {
+			{
 				Vector3 vel = _rb.velocity;
 
 				if (Mathf.Abs(f.transform.position.x - transform.position.x) < flock.MinDistanceBetweenMembers)
@@ -159,8 +187,8 @@ public class FlockMember : MonoBehaviour
 				}
 
 				avoidDir += TempDir;
-            }
-        }
+			}
+		}
 
 		avoidDir = avoidDir.normalized;
 		//avoidDir = avoidDir / flock.flockMembers.Count;
@@ -172,7 +200,7 @@ public class FlockMember : MonoBehaviour
 	}
 
 	public void SetNewFlock(FlockManager f)
-    {
+	{
 		flock = f;
 		objectiveRB = flock.objective.GetComponent<Rigidbody>();
 	}
@@ -184,16 +212,16 @@ public class FlockMember : MonoBehaviour
 	}
 
 	public void JumpTo(Vector3 point, float forwardVelocity = 0)
-    {
+	{
 		//float timeToFall = [jumpForce + Mathf.Sqrt(Mathf.Pow(jumpForce, 2) + 2 * Physics.gravity * h)] / Physics.gravity;
 
 		float timeToFall = Mathf.Abs(2 * jumpForce / Physics.gravity.y);
 
-		Debug.Log(timeToFall);
+		//Debug.Log(timeToFall);
 
 		Vector3 dir = point - transform.position;
 
-		Debug.Log(dir);
+		//Debug.Log(dir);
 
 		_rb.velocity = new Vector3(dir.x / timeToFall, jumpForce, dir.z / timeToFall + forwardVelocity);
 
@@ -205,10 +233,16 @@ public class FlockMember : MonoBehaviour
 	}
 
 	public void detatchFromFlock()
-    {
+	{
 		if(flock)
-        {
+		{
 			flock.flockMembers.Remove(this);
-        }
+		}
+	}
+
+	public void autoKill()
+    {
+		_hp.Hurt(Mathf.Infinity);
+
 	}
 }

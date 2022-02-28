@@ -22,9 +22,41 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Stomp",
+                    "type": "Button",
+                    "id": "434e4daf-740f-4aa4-aba8-fd5796433f74",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "AttackOrder",
                     "type": "Button",
                     "id": "7702d4dd-aca9-4254-b34a-1a7170e4eefa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "f9c2a830-af1a-48d6-85fe-25308fb5cd7d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ActivateGodMode",
+                    "type": "Button",
+                    "id": "6e28da6f-32e7-48d8-8d7b-2ea536fbab59",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "GodAddFollower",
+                    "type": "Button",
+                    "id": "fb655b5d-03bf-4635-a8cf-02cc8c58d755",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -182,6 +214,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "AttackOrder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b17501e-eeb8-4f30-b1be-9859f9ec7120",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d2dc263d-e24e-416c-8f7e-09b40c7b966c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stomp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d8bec85-5281-423d-95f9-0d185409345c",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivateGodMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b8edf0a-8f0c-4480-bab3-00a18e0cb41e",
+                    "path": "<Keyboard>/f6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GodAddFollower",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

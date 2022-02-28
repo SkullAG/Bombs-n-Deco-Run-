@@ -21,7 +21,13 @@ public class PlayerController : MonoBehaviour
 
 	public float groundCheckDistance;
 	public LayerMask groundMask;
+
+	public ParticleSystem doubleJumpEffect;
+
 	bool isGrounded;
+
+	bool hasSkyJump;
+	bool hasStomp;
 
 	void Start()
 	{
@@ -34,15 +40,37 @@ public class PlayerController : MonoBehaviour
 
 	public void jump(InputAction.CallbackContext context)
 	{
-		if (isGrounded && context.started)
+		if(context.started && !PauseManager.IsPaused)
+        {
+			if (isGrounded)
+			{
+				_rb.velocity = new Vector3(_rb.velocity.x, jumpForce, _rb.velocity.z);
+			}
+			else if(hasSkyJump)
+			{
+				_rb.velocity = new Vector3(_rb.velocity.x, jumpForce, _rb.velocity.z);
+				hasSkyJump = false;
+				doubleJumpEffect.Play();
+			}
+        }
+		
+	}
+	public void stomp(InputAction.CallbackContext context)
+	{
+		if (!isGrounded && hasStomp && context.started && !PauseManager.IsPaused)
 		{
-			_rb.velocity = new Vector3(_rb.velocity.x, jumpForce, _rb.velocity.z);
+			_rb.velocity = new Vector3(_rb.velocity.x, -jumpForce, _rb.velocity.z);
+			hasSkyJump = false;
+			hasStomp = false;
+			doubleJumpEffect.Play();
 		}
 	}
 
 	void checkForGround()
 	{
 		isGrounded = Physics.Raycast(transform.position, -transform.up, groundCheckDistance, groundMask);
+
+		_animator.SetBool("IsGrounded", isGrounded);
 	}
 
 	void CalculateMovement()
@@ -67,6 +95,12 @@ public class PlayerController : MonoBehaviour
 	void FixedUpdate()
 	{
 		checkForGround();
+		if(isGrounded)
+        {
+			hasSkyJump = true;
+			hasStomp = true;
+
+		}
 
 		CalculateMovement();
 	}

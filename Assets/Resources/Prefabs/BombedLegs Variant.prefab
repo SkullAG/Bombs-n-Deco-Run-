@@ -139,6 +139,7 @@ MonoBehaviour:
   explosionRadius: 10
   explosionDamage: 10
   explosionOffset: {x: 0, y: 1, z: 0}
+  sound: {fileID: 8300000, guid: 000e8be35f9bae44389e3312363ede41, type: 3}
 --- !u!1001 &6040251338317828733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,6 +212,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 884835386318278647, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
+      propertyPath: m_EnableCollision
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 884835386318278647, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -1.7437798e-10
       objectReference: {fileID: 0}
@@ -221,6 +226,10 @@ PrefabInstance:
     - target: {fileID: 884835386318278647, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: -0.0000000023283064
+      objectReference: {fileID: 0}
+    - target: {fileID: 884835386550228511, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
+      propertyPath: m_EnableCollision
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 884835386550228511, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -238,10 +247,18 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 884835387179927310, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 884835387477991490, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 919132148982735494}
+    - target: {fileID: 884835387477991490, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
+      propertyPath: m_EnableCollision
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 884835387477991490, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0
@@ -260,15 +277,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1868116418538060460, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2644566019606799220, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3261108313703607174, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3800431152672899897, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_Layer
@@ -276,19 +293,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4683150437847622081, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6462176711754865252, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7917952005186173796, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8633541265206765417, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 884835387179927297, guid: f4d40a1546959b2498f6a8455e8ecb91, type: 3}
@@ -342,7 +359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852445298321625364, guid: e00b4e570c7a7c14e80cf01a6311f12c, type: 3}
       propertyPath: m_Name
-      value: BombedLegs
+      value: BombedLegs Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3852445298321625364, guid: e00b4e570c7a7c14e80cf01a6311f12c, type: 3}
       propertyPath: m_Layer

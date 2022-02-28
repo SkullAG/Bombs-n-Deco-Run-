@@ -7,8 +7,8 @@ using UnityEngine;
 public static class Measurement
 {
 	static Mesh quadMesh;
-
-	public static Mesh GetQuad()
+#if UNITY_EDITOR
+    public static Mesh GetQuad()
     {
 		if(!quadMesh)
         {
@@ -79,4 +79,5 @@ public static class Measurement
 
 		GameObjectUtility.SetParentAndAlign(RulerContainer, menuCommand.context as GameObject);
 	}
+#endif
 }

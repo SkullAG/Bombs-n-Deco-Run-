@@ -6,6 +6,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class RulerBehabiour : MonoBehaviour
 {
+#if UNITY_EDITOR
 	public Transform UpPoint;
 	public Transform BottomPoint;
 
@@ -43,4 +44,5 @@ public class RulerBehabiour : MonoBehaviour
 
 		//Handles.Label(UpPoint.position, rotation.eulerAngles.x + " m");
 	}
+#endif
 }
