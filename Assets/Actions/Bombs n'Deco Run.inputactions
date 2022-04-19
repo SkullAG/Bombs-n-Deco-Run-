@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "GedDestroyFollower",
+                    "type": "Button",
+                    "id": "576037aa-0334-4f9a-af24-bbf31a9991de",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -258,6 +266,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "GodAddFollower",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfcc9191-ca5e-4b91-8a9f-2144ee884d6c",
+                    "path": "<Keyboard>/f7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GedDestroyFollower",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

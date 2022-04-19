@@ -245,4 +245,14 @@ public class FlockMember : MonoBehaviour
 		_hp.Hurt(Mathf.Infinity);
 
 	}
+
+	public void SelfDefuse()
+	{
+		if (flock)
+		{
+			flock.flockMembers.Remove(this);
+		}
+
+		this.gameObject.SetActive(false);
+	}
 }

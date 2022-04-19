@@ -1373,17 +1373,6 @@ MonoBehaviour:
   maxHeight: 2
   objectRotation: {x: -90, y: 0, z: 0}
   Redo: 1
---- !u!114 &386792708 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 386792708, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-  m_PrefabInstance: {fileID: 922980653863092991}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd0592a533f7574696547e467eb517b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &390819333
 GameObject:
   m_ObjectHideFlags: 0
@@ -8431,53 +8420,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 956924584}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 386792708}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 386792708}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetGodModeState
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddFollower
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GodMode, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GodMode, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132148189811576, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2318483337947618648, guid: cd9e5afcc77914c4cb8bf66677858cb0, type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

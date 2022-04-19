@@ -78,7 +78,15 @@ public class FlockManager : MonoBehaviour
 		}
 	}
 
-    private void Update()
+	public void SelfDestructOrder(InputAction.CallbackContext context)
+	{
+		if (context.started && !PauseManager.IsPaused && flockMembers.Count > 0)
+		{
+			flockMembers[0].SelfDefuse();
+		}
+	}
+
+	private void Update()
     {
 		foreach (FlockMember f in flockMembers)
 		{
