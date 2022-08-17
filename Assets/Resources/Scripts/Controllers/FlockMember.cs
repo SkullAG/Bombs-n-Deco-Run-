@@ -11,6 +11,7 @@ public class FlockMember : MonoBehaviour
 	List<float> stompPoints = new List<float>();
 
 	public float velocity;
+	private float calculatedVel;
 	public float acceleration;
 
 	public float jumpForce;
@@ -46,6 +47,8 @@ public class FlockMember : MonoBehaviour
 	{
 		_rb = GetComponent<Rigidbody>();
 		_animator = GetComponent<Animator>();
+
+		calculatedVel = velocity;
 
 		basicLayer = gameObject.layer;
 
@@ -112,11 +115,11 @@ public class FlockMember : MonoBehaviour
 
 		dir += avoidFlockMembersDir();
 
-		float xVel = Utility.CalculateVelocity(vel.x, acceleration, velocity * dir.x);
+		float xVel = Utility.CalculateVelocity(vel.x, acceleration, calculatedVel * dir.x);
 
 		float yVel = vel.y;
 
-		float zVel = Utility.CalculateVelocity(vel.z, acceleration, velocity * dir.z);
+		float zVel = Utility.CalculateVelocity(vel.z, acceleration, calculatedVel * dir.z);
 
 		vel = new Vector3(xVel, yVel, zVel);
 
@@ -254,5 +257,14 @@ public class FlockMember : MonoBehaviour
 		}
 
 		this.gameObject.SetActive(false);
+	}
+
+	public IEnumerator SpeedUp(float mult, float time)
+	{
+		calculatedVel *= mult;
+		_rb.velocity += new Vector3(0, 0, calculatedVel - _rb.velocity.z);
+		yield return new WaitForSeconds(time);
+		calculatedVel = velocity;
+
 	}
 }

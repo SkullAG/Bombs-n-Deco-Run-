@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 	public float forwardVelocity;
+	private float calculatedVel;
 	public float forwardAcceleration;
 
 	public float lateralVelocity;
@@ -34,6 +35,8 @@ public class PlayerController : MonoBehaviour
 		_input = GetComponent<PlayerInput>();
 		_rb = GetComponent<Rigidbody>();
 		_animator = GetComponent<Animator>();
+
+		calculatedVel = forwardVelocity;
 
 		moveAction = _input.actions.FindAction("Move");
 	}
@@ -84,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
 		float yVel = vel.y;
 
-		float zVel = Utility.CalculateVelocity(vel.z, forwardAcceleration, forwardVelocity);
+		float zVel = Utility.CalculateVelocity(vel.z, forwardAcceleration, calculatedVel);
 		//float zVel = Mathf.Clamp(vel.z + (forwardAcceleration * Time.deltaTime), 0, forwardVelocity);
 
 		vel = new Vector3(xVel, yVel, zVel);
@@ -109,5 +112,14 @@ public class PlayerController : MonoBehaviour
 	{
 		Gizmos.color = isGrounded ? Color.green : Color.red;
 		Gizmos.DrawLine(transform.position, transform.position - transform.up * groundCheckDistance);
+	}
+
+	public IEnumerator SpeedUp(float mult, float time)
+    {
+		calculatedVel *= mult;
+		_rb.velocity += new Vector3(0, 0, calculatedVel - _rb.velocity.z);
+		yield return new WaitForSeconds(time);
+		calculatedVel = forwardVelocity;
+
 	}
 }

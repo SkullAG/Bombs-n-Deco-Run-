@@ -9,6 +9,8 @@ public class GodMode : MonoBehaviour
 
     public FlockManager flock;
 
+    public Vector3 TpPosition = new Vector3(0, 0, 390);
+
     public void SetGodModeState(bool state)
     {
         Health.MaxHealth = Mathf.Infinity;
@@ -23,6 +25,19 @@ public class GodMode : MonoBehaviour
         {
             flock.AddFollower();
             Debug.Log("Follower Added");
+        }
+    }
+
+    public void TeleportToEnd(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            flock.transform.position = TpPosition;
+
+            for (int i = 0; i < flock.flockMembers.Count; i++)
+            {
+                flock.flockMembers[i].transform.position = TpPosition + new Vector3(0, i, -2);
+            }
         }
     }
 }

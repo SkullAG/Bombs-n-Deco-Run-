@@ -23,6 +23,8 @@ public class ChangeScene : MonoBehaviour
 
 		}
 
+		CoinManager.Reset();
+
 		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 	}
 }

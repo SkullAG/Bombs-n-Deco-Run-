@@ -68,6 +68,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "GodTp",
+                    "type": "Button",
+                    "id": "cdec78d6-fedc-44c3-9d8d-04ff63f62abd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -277,6 +285,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "GedDestroyFollower",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "290facf1-9641-4239-8c25-9a81c0278a7a",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GodTp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

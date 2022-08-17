@@ -16,5 +16,6 @@ public class LoadScene : MonoBehaviour
 		else
 			SceneManager.LoadScene(DefaultScene, LoadSceneMode.Single);
 
+		CoinManager.Reset();
 	}
 }

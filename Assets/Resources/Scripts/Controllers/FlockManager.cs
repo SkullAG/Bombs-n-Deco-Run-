@@ -86,6 +86,11 @@ public class FlockManager : MonoBehaviour
 		}
 	}
 
+	public void DefuseMember(FlockMember member)
+	{
+		member.SelfDefuse();
+	}
+
 	private void Update()
     {
 		foreach (FlockMember f in flockMembers)
@@ -94,6 +99,14 @@ public class FlockManager : MonoBehaviour
 			{
 				f.autoKill();
 			}
+		}
+	}
+
+	public void SpeedUp(int mult, int time)
+    {
+		foreach (FlockMember f in flockMembers)
+		{
+			StartCoroutine(f.SpeedUp(mult, time));
 		}
 	}
 }
